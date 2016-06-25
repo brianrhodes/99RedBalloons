@@ -21,9 +21,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.createBalloons()
         
-        balloonLabel.text = "My number is: \(balloons[currentBalloon].myNumber)"
-        balloonImageView.image = UIImage(named: balloons[currentBalloon].imageName)
-        currentBalloon += 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,18 +36,18 @@ class ViewController: UIViewController {
             let randomNumber = Int(arc4random_uniform(4))
             switch randomNumber {
             case 0:
-                newBalloon.imageName = "RedBalloon1.jpg"
+                newBalloon.image = UIImage(named:"RedBalloon1.jpg")
             case 1:
-                newBalloon.imageName = "RedBalloon2.jpg"
+                newBalloon.image = UIImage(named:"RedBalloon2.jpg")
             case 2:
-                newBalloon.imageName = "RedBalloon3.jpg"
+                newBalloon.image = UIImage(named:"RedBalloon3.jpg")
             case 3:
-                newBalloon.imageName = "RedBalloon4.jpg"
+                newBalloon.image = UIImage(named:"RedBalloon4.jpg")
             default:
                 break
             }
             
-            balloons.append(newBalloon)
+            self.balloons.append(newBalloon)
         }
     }
 
@@ -61,7 +58,7 @@ class ViewController: UIViewController {
         let thisBalloon = balloons[currentBalloon]
         
         balloonLabel.text = "My number is: \(thisBalloon.myNumber)"
-        balloonImageView.image = UIImage(named: thisBalloon.imageName)
+        balloonImageView.image = thisBalloon.image
         
         currentBalloon += 1
     }
